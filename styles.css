@@ -1,0 +1,58 @@
+
+:root{
+  --bg: #0b1020;
+  --card: #121933;
+  --text: #e9ecf5;
+  --sub: #a8b0c8;
+  --accent: #69e5ff;
+  --muted: #2a355f;
+  --chip: #1b2447;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1000px 600px at 20% -10%, #1d2660 0%, transparent 60%), var(--bg);
+  color: var(--text);
+}
+.container{max-width:1000px; margin: 0 auto; padding: 24px}
+h1{font-size: clamp(24px, 4vw, 36px); margin: 0 0 6px}
+.sub{color:var(--sub); margin:0 0 18px}
+.search-row{display:flex; gap:12px; align-items:center}
+input[type=search]{
+  flex:1; padding:14px 16px; font-size:16px; border-radius:14px; border:1px solid var(--muted);
+  background:#0f1631; color:var(--text); outline:none;
+}
+input[type=search]::placeholder{color:#8ea1d1}
+select{
+  padding:12px 14px; border-radius:12px; background:#0f1631; color:var(--text); border:1px solid var(--muted);
+}
+.stats{margin-top:8px; color:var(--sub)}
+.grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px; margin-top:16px}
+.card{
+  background: linear-gradient(180deg, #15204a, #0d1330);
+  border:1px solid var(--muted);
+  border-radius: 18px;
+  padding:16px;
+  box-shadow: 0 4px 30px rgba(0,0,0,.25);
+}
+.card-head{display:flex; gap:10px; align-items:flex-start; justify-content:space-between}
+.meta{display:flex; gap:10px; color:var(--sub); font-size:12px}
+.title{margin:6px 0 10px; font-size:18px}
+.summary{cursor:pointer; color:var(--accent)}
+.ts-list{list-style:none; padding-left:0; display:flex; flex-direction:column; gap:8px; margin:10px 0}
+.ts-list li{display:flex; gap:10px; align-items:center; justify-content:space-between; background: var(--chip); padding:8px 10px; border-radius:10px}
+.ts-list a{text-decoration:none; color:var(--text)}
+.ts-list a mark{background:transparent; color:var(--accent); font-weight:700}
+.chip-row{display:flex; gap:10px; margin-top:12px}
+.yt{background:#ff0033; color:white; text-decoration:none; padding:8px 12px; border-radius:999px; font-weight:700}
+.copy, .copy-mini{
+  background:#1a254b; color:var(--text); border:1px solid var(--muted);
+  border-radius:999px; padding:8px 12px; cursor:pointer
+}
+.copy-mini{padding:6px 10px; font-size:12px}
+.footer{color:var(--sub); display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:24px}
+.tiny{opacity:.8}
+mark{background:transparent; color:var(--accent)}
+@media (max-width:640px){ .grid{grid-template-columns: 1fr} }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScoopCast – Topic Search</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Search topics across your ScoopCast episodes and jump to exact timestamps on YouTube." />
+</head>
+<body>
+  <header class="container">
+    <h1>🔎 ScoopCast – Topic Search</h1>
+    <p class="sub">Type anything (movie, person, topic). We’ll search episode titles and timestamp topics.</p>
+    <div class="search-row">
+      <input id="q" type="search" placeholder="e.g., Daredevil, Black Adam, Henry Cavill…" autofocus aria-label="Search topics" />
+      <select id="sort">
+        <option value="relevance">Sort: Relevance</option>
+        <option value="newest">Sort: Newest</option>
+        <option value="oldest">Sort: Oldest</option>
+      </select>
+    </div>
+    <div id="stats" class="stats" aria-live="polite"></div>
+  </header>
+
+  <main class="container">
+    <div id="results" class="grid"></div>
+  </main>
+
+  <footer class="container footer">
+    <div>
+      <strong>How to use:</strong> Search → expand an episode → click a timestamp to open YouTube at that exact moment.
+    </div>
+    <div class="tiny">Static site. No tracking. Data from <code>data.json</code>.</div>
+  </footer>
+
+  <template id="episode-card">
+    <article class="card">
+      <div class="card-head">
+        <div class="meta">
+          <div class="ep">Episode <span data-ep></span></div>
+          <div class="date" data-date></div>
+        </div>
+        <h2 class="title" data-title></h2>
+      </div>
+      <details>
+        <summary class="summary">Show timestamps (<span data-count></span>)</summary>
+        <ul class="ts-list" data-ts></ul>
+      </details>
+      <div class="chip-row">
+        <a class="yt" target="_blank" rel="noopener" data-yt>▶ Watch on YouTube</a>
+        <button class="copy" type="button" data-copy>Copy episode link</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="timestamp-item">
+    <li>
+      <a data-ts-link target="_blank" rel="noopener"></a>
+      <button class="copy-mini" type="button" data-copy-ts>Copy link</button>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
